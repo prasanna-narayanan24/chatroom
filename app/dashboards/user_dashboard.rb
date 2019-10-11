@@ -8,7 +8,6 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    services: Field::HasMany,
     id: Field::Number,
     email: Field::String,
     password: Field::String.with_options(searchable: false),
@@ -29,7 +28,6 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  services
   id
   email
   ].freeze
