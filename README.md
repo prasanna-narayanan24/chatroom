@@ -1,6 +1,6 @@
  # Chatroom
 
-Real-time chat application built using the rails framework.
+Real-time chat application built using the Ruby on Rails framework.
 
 ## Prerequisite
 
@@ -20,11 +20,11 @@ Real-time chat application built using the rails framework.
 
 + [Redis](https://redis.io/topics/quickstart)
 
-## Usage
+## Build resource
 
 From the **root** of the app directory, run
 ```bash
-#This sets up the library installation along with the database creation and migration
+# This sets up the library installation with database creation and migration
 ./init.sh
 ```
 
@@ -35,6 +35,14 @@ foreman start
 ```
 
 In web browser open [http://localhost:5000]()
+
+## Tech stack
+
+- [Ruby on Rails v6.0.0]() -> Web framework
+- [PostgresSQL 9.6]() ->  Database
+- [Redis 5.0.5]() -> Caching
+- [Sidekiq 5.2]() -> Message broker and background jobs
+- [ActionCable]() -> Enabling web sockets
 
 ## References
 
