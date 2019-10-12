@@ -10,6 +10,7 @@ const chatarea_channel = consumer.subscriptions.create("ChatareasChannel", {
   },
 
   speak: (chatarea_id, body) => {
+    // Called when the subscriptions spits a message
     chatarea_channel.perform("speak", {chatarea_id: chatarea_id, body: body});
   },
 
@@ -53,7 +54,7 @@ const chatarea_channel = consumer.subscriptions.create("ChatareasChannel", {
     if(!data.is_auto_generated) {
       setTimeout(() => {
         fetch(`/chatareas/${data.chatarea_id}/messages/${data.message_id}/ping`);
-      }, 10000)
+      }, 30000)
     }
   }
 });

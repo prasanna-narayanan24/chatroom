@@ -1,6 +1,7 @@
 class ChatareasController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_chatarea, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_chatarea_user!, except: [:index]
 
   # GET /chatareas
   # GET /chatareas.json
@@ -67,8 +68,8 @@ class ChatareasController < ApplicationController
 
   def prank
     @chatarea = Chatarea.find(params[:chatarea_id])
-    1.upto(10).each do |time|
-      @chatarea.messages.create(user_id: current_user.id, body: "prank-message-#{time}", is_auto: true)
+    1.upto(1000).each do |time|
+      @chatarea.messages.create(user_id: current_user.id, body: "Woahh! This is fun...", is_auto: true)
     end
   end
 
@@ -81,5 +82,9 @@ class ChatareasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def chatarea_params
       params.require(:chatarea).permit(:name, :user_limit)
+    end
+
+    def authenticate_chatarea_user!
+      redirect_to root_path if @chatarea.chatarea_users.find_by(user_id: current_user.id).nil?
     end
 end

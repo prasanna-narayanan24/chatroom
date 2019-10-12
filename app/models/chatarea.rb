@@ -2,9 +2,9 @@ class Chatarea < ApplicationRecord
     extend FriendlyId
     friendly_id :name, use: [:slugged, :finders]
 
-    has_many :chatarea_users
-    has_many :users, through: :chatarea_users
-    has_many :messages
+    has_many :chatarea_users, dependent: :destroy
+    has_many :users, through: :chatarea_users, dependent: :destroy
+    has_many :messages, dependent: :destroy
 
     def short_display_message
         message = self.messages.where(is_auto: false).last
