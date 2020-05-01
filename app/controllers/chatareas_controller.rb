@@ -85,6 +85,8 @@ class ChatareasController < ApplicationController
     end
 
     def authenticate_chatarea_user!
+      chatarea_id = params[:id] || params[:chatarea_id]
+      @chatarea = Chatarea.find(chatarea_id) if @chatarea.nil?
       redirect_to root_path if @chatarea.chatarea_users.find_by(user_id: current_user.id).nil?
     end
 end

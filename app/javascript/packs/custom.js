@@ -5,6 +5,7 @@ $(document).on("turbolinks:load", () => {
     $("#new_message").on("keypress", e => {
         if (e && e.keyCode == 13) {
             e.preventDefault();
+            e.stopPropagation();
             if($(e.target).val().length > 0) {
                 $("#new_message").submit()
             }
@@ -12,12 +13,14 @@ $(document).on("turbolinks:load", () => {
     });
 
     $("#new_message_submit_btn").on("click", e => {
-        e.preventDefault()
+        e.preventDefault();
+        e.stopPropagation();
         $("#new_message").submit()
     });
 
     $("#new_message").on("submit", e => {
-        e.preventDefault()
+        e.preventDefault();
+        e.stopPropagation();
         let chatareaId = $("[data-behaviour='messages']").data('chatarea-id');
         let body = $("#message_body")
         chatarea_channel.speak(chatareaId, body.val());

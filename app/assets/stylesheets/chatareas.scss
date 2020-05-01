@@ -64,7 +64,6 @@ ul .conversation-list-item:first-of-type {
     float: left;
 }
 
-
 .chat-section {
     display: flex;
     flex-direction: column;
@@ -77,11 +76,9 @@ ul .conversation-list-item:first-of-type {
     overflow: auto;
 }
 
-
 .chat-compose input {
     height: 100%;
 }
-
 
 .chat-message {
     display: inline-block;
@@ -109,6 +106,16 @@ ul .conversation-list-item:first-of-type {
 .form-control:focus {
     outline: none!important;
     box-shadow: none!important;
+}
+
+input[type=submit] {
+    border-radius: 10px;
+    background-color: transparent;
+    transition: background-color .3s ease-in;
+}
+
+input[type=submit]:hover {
+    background-color: #ccc;
 }
 
 @media only screen and (min-width: 768px) {

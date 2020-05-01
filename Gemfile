@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
@@ -62,6 +62,6 @@ gem 'friendly_id', '~> 5.2', '>= 5.2.5'
 gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
 gem 'mini_magick', '~> 4.9', '>= 4.9.2'
 gem 'name_of_person', '~> 1.1'
-gem 'sidekiq', '~> 5.2', '>= 5.2.5'
+gem 'sidekiq'
 gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
 gem 'whenever', require: false

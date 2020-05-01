@@ -22,7 +22,13 @@
         <%= content_tag :tr, id: dom_id(chatarea), class: dom_class(chatarea) do %>
             <td><%= chatarea.name %></td>
             <td><%= "#{chatarea.chatarea_users.count} of #{chatarea.user_limit}" %></td>
-            <td><%= link_to "Join", chatarea_chatarea_users_path(chatarea), method: :post %></td>
+            <% if current_user %>
+              <% if chatarea.user_joined? current_user.id %>
+                <td><%= link_to "View", chatarea_path(chatarea) %></td>
+              <% else %>
+                <td><%= button_to "Join", chatarea_chatarea_users_path(chatarea) %></td>
+              <% end %>
+            <% end %>
         <% end %>
       <% end %>
     </tbody>

@@ -1,5 +1,5 @@
 class NotificationRelayJob < ApplicationJob
-  queue_as :default
+  sidekiq_options retry: false
 
   def perform(chatarea_user_ids, sender_name, channel_name, body)
     chatarea_user_ids.each do |user_id|

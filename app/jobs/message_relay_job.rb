@@ -1,7 +1,8 @@
 class MessageRelayJob < ApplicationJob
-  queue_as :default
+  sidekiq_options retry: false
 
   def perform(message, current_user_id)
+    puts "Performing the job for message - #{message}"
     ActionCable.server.broadcast "chatareas:#{message.chatarea.id}", {
       message: MessagesController.render(message, locals: {current_user: nil}),
       chatarea_id: message.chatarea.id,

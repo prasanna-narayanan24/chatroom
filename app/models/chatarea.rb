@@ -17,4 +17,8 @@ class Chatarea < ApplicationRecord
         to_user_ids = self.chatarea_users.pluck(:user_id) - [message.user.id]
         NotificationRelayJob.perform_later(to_user_ids, message.user.name, message.chatarea.name, message.short_message)
     end
+
+    def user_joined?(user_id)
+        self.chatarea_users.pluck(:user_id).include? user_id
+    end
 end

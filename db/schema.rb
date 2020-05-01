@@ -54,20 +54,6 @@ ActiveRecord::Schema.define(version: 2019_10_08_080844) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "services", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "access_token"
-    t.string "access_token_secret"
-    t.string "refresh_token"
-    t.datetime "expires_at"
-    t.text "auth"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_services_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -87,5 +73,4 @@ ActiveRecord::Schema.define(version: 2019_10_08_080844) do
   add_foreign_key "chatarea_users", "users"
   add_foreign_key "messages", "chatareas"
   add_foreign_key "messages", "users"
-  add_foreign_key "services", "users"
 end
