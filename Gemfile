@@ -56,7 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'administrate', github: 'thoughtbot/administrate'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'devise', '~> 4.6', '>= 4.6.1'
-gem 'devise_masquerade', '~> 0.6.2'
+gem 'devise_masquerade', '~> 1.3.1'
 gem 'font-awesome-sass', '~> 5.6', '>= 5.6.1'
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
 gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
